@@ -34,7 +34,7 @@ let callback = (entries, observer) => {
 
         const ifMore = pixabayApi.hasMorePhotos();
         if (ifMore) {
-          const lastImage = document.querySelector('.gallery-item:last-child');
+          const lastImage = document.querySelector('.photo-card:last-child');
           observer.observe(lastImage);
         } else {
           Notify.failure(
@@ -80,10 +80,11 @@ function onSubmitGetValue(e) {
 
       pixabayApi.allImagesSum(total);
       const ifMore = pixabayApi.hasMorePhotos();
-
+      
       if (ifMore) {
-        const lastImage = document.querySelector('.gallery-item:last-child');
+        const lastImage = document.querySelector('.photo-card:last-child');
         observer.observe(lastImage);
+        console.log(ifMore);
       }
 
       gallerySL.on('show.simplelightbox');
