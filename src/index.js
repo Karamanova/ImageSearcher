@@ -120,7 +120,7 @@ function alerts(total, value) {
     Notify.success(`Hooray! We found ${total} images of "${value}".`);
   }
 
-  pixabayApi.addPage();
+  // pixabayApi.addPage();
 
   if (total <= 40) {
     refs.loadMoreBtn.classList.add('is-hidden');
