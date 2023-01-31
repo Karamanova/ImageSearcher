@@ -46,6 +46,6 @@ export class PixabayApi {
   }
 
   hasMorePhotos() {
-    return this.#page <= Math.ceil(this.#allImages / 40);
+    return this.#page < Math.ceil(this.#allImages / 40);
   }
 }

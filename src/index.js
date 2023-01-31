@@ -30,8 +30,6 @@ let callback = (entries, observer) => {
         gallerySL.on('show.simplelightbox');
         gallerySL.refresh();
 
-        Loading.remove(1000);
-
         const ifMore = pixabayApi.hasMorePhotos();
         if (ifMore) {
           const lastImage = document.querySelector('.photo-card:last-child');
@@ -43,6 +41,8 @@ let callback = (entries, observer) => {
         }
       });
     }
+      Loading.remove(1000);
+
   });
 };
 
@@ -92,11 +92,11 @@ function onSubmitGetValue(e) {
 
       alerts(total, value);
 
-      Loading.remove(1000);
     })
     .catch(error => {
       Notify.failure(error.message);
     });
+   Loading.remove(1000);
 }
 
 function ifNoValue(value) {
