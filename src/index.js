@@ -73,7 +73,7 @@ function onSubmitGetValue(e) {
       const { hits, total } = response.data;
 
       checkImages(total);
-      Loading.pulse();
+      // Loading.pulse();
 
       const markup = gallery(hits);
       refs.gallery.innerHTML = markup;
