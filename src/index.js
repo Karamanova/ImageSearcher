@@ -32,16 +32,16 @@ let callback = (entries, observer) => {
 
         const ifMore = pixabayApi.hasMorePhotos();
         if (ifMore) {
-          const lastImage = document.querySelector('.photo-card:last-child');
+          const lastImage = document.querySelector('.gallery-item:last-child');
           observer.observe(lastImage);
         } else {
           Notify.failure(
             "We're sorry, but you've reached the end of search results."
           );
         }
-      });
+      }, Loading.remove(1000));
     }
-      Loading.remove(1000);
+      
 
   });
 };
@@ -82,7 +82,7 @@ function onSubmitGetValue(e) {
       const ifMore = pixabayApi.hasMorePhotos();
       
       if (ifMore) {
-        const lastImage = document.querySelector('.photo-card:last-child');
+        const lastImage = document.querySelector('.gallery-item:last-child');
         observer.observe(lastImage);
         console.log(ifMore);
       }
@@ -95,8 +95,7 @@ function onSubmitGetValue(e) {
     })
     .catch(error => {
       Notify.failure(error.message);
-    });
-   Loading.remove(1000);
+    }, Loading.remove(1000));
 }
 
 function ifNoValue(value) {
